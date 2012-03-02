@@ -1,9 +1,10 @@
+cmake_minimum_required(VERSION 2.8)
 PROJECT(CMZLIB)
 
 INCLUDE_DIRECTORIES(
   "${CMZLIB_SOURCE_DIR}"
-  "${CMZLIB_SOURCE_DIR}/.."
-  "${CMZLIB_BINARY_DIR}/.."
+  "${CMZLIB_SOURCE_DIR}"
+  "${CMZLIB_BINARY_DIR}"
   )
 
 # source files for zlib
@@ -40,4 +41,4 @@ ENDFOREACH(name)
 
 ADD_LIBRARY(cmzlib ${ZLIB_SRCS})
 
-INSTALL(FILES Copyright.txt DESTINATION ${CMake_DOC_DEST}/cmzlib)
+#INSTALL(FILES Copyright.txt DESTINATION ${CMake_DOC_DEST}/cmzlib)
