@@ -1,10 +1,11 @@
 cmake_minimum_required(VERSION 2.8)
-PROJECT(CMZLIB)
+
+PROJECT(ZLIB)
 
 INCLUDE_DIRECTORIES(
-  "${CMZLIB_SOURCE_DIR}"
-  "${CMZLIB_SOURCE_DIR}"
-  "${CMZLIB_BINARY_DIR}"
+  "${ZLIB_SOURCE_DIR}"
+  "${ZLIB_SOURCE_DIR}"
+  "${ZLIB_BINARY_DIR}"
   )
 
 # source files for zlib
@@ -28,17 +29,17 @@ IF(WIN32)
   ENDIF(BUILD_SHARED_LIBS)
 ENDIF(WIN32)
 
-CONFIGURE_FILE(${CMZLIB_SOURCE_DIR}/.NoDartCoverage
-  ${CMZLIB_BINARY_DIR}/.NoDartCoverage)
-CONFIGURE_FILE(${CMZLIB_SOURCE_DIR}/zlibDllConfig.h.in
-  ${CMZLIB_BINARY_DIR}/zlibDllConfig.h)
+CONFIGURE_FILE(${ZLIB_SOURCE_DIR}/.NoDartCoverage
+  ${ZLIB_BINARY_DIR}/.NoDartCoverage)
+CONFIGURE_FILE(${ZLIB_SOURCE_DIR}/zlibDllConfig.h.in
+  ${ZLIB_BINARY_DIR}/zlibDllConfig.h)
 
 FOREACH(name zlib zconf cm_zlib_mangle)
-  CONFIGURE_FILE(${CMZLIB_SOURCE_DIR}/${name}.h
-    ${CMZLIB_BINARY_DIR}/${name}.h COPYONLY)
+  CONFIGURE_FILE(${ZLIB_SOURCE_DIR}/${name}.h
+    ${ZLIB_BINARY_DIR}/${name}.h COPYONLY)
 ENDFOREACH(name)
 
 
-ADD_LIBRARY(cmzlib ${ZLIB_SRCS})
+ADD_LIBRARY(zlib ${ZLIB_SRCS})
 
 #INSTALL(FILES Copyright.txt DESTINATION ${CMake_DOC_DEST}/cmzlib)
