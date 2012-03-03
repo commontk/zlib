@@ -43,8 +43,15 @@ FOREACH(name zlib zconf cm_zlib_mangle)
     ${ZLIB_BINARY_DIR}/${name}.h COPYONLY)
 ENDFOREACH(name)
 
-
 ADD_LIBRARY(zlib ${ZLIB_SRCS})
+
+# To fix compilation problem: relocation R_X86_64_32 against `a local symbol' can not be
+# used when making a shared object; recompile with -fPIC
+# See http://www.cmake.org/pipermail/cmake/2007-May/014350.html
+#
+IF(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
+  SET_TARGET_PROPERTIES(zlib PROPERTIES COMPILE_FLAGS "-fPIC")
+ENDIF()
 
 # Configure install locations.  This allows parent projects to modify
 # the install location.
