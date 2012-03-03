@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 2.8)
 
 PROJECT(ZLIB)
 
+SET(ZLIB_MANGLE_PREFIX "" CACHE STRING "Mangle prefix. For example 'cm_zlib_', 'z_', ...")
+
 SET(ZLIB_VERSION_MAJOR "1")
 SET(ZLIB_VERSION_MINOR "2")
 SET(ZLIB_VERSION_PATCH "3")
@@ -26,7 +28,8 @@ IF(WIN32)
     IF(NOT UNIX)
       IF(NOT BORLAND)
         IF(NOT MINGW)
-          SET(ZLIB_SRCS ${ZLIB_SRCS} zlib.def zlib.rc  )
+          CONFIGURE_FILE(zlib.def.in ${ZLIB_BINARY_DIR}/zlib.def)
+          SET(ZLIB_SRCS ${ZLIB_SRCS} ${ZLIB_BINARY_DIR}/zlib.def zlib.rc)
         ENDIF(NOT MINGW)
       ENDIF(NOT BORLAND) 
     ENDIF(NOT UNIX)   
@@ -37,8 +40,10 @@ CONFIGURE_FILE(${ZLIB_SOURCE_DIR}/.NoDartCoverage
   ${ZLIB_BINARY_DIR}/.NoDartCoverage)
 CONFIGURE_FILE(${ZLIB_SOURCE_DIR}/zlibDllConfig.h.in
   ${ZLIB_BINARY_DIR}/zlibDllConfig.h)
-
-FOREACH(name zlib zconf cm_zlib_mangle)
+CONFIGURE_FILE(${ZLIB_SOURCE_DIR}/zlib_mangle.h.in
+  ${ZLIB_BINARY_DIR}/zlib_mangle.h)
+    
+FOREACH(name zlib zconf)
   CONFIGURE_FILE(${ZLIB_SOURCE_DIR}/${name}.h
     ${ZLIB_BINARY_DIR}/${name}.h COPYONLY)
 ENDFOREACH(name)
@@ -81,7 +86,11 @@ INSTALL(TARGETS zlib
   )
 
 # Install public headers
-INSTALL(FILES zlib.h zconf.h
+INSTALL(FILES
+  zlib.h
+  zconf.h
+  ${ZLIB_BINARY_DIR}/zlib_mangle.h
+  ${ZLIB_BINARY_DIR}/zlibDllConfig.h
   DESTINATION ${ZLIB_INSTALL_INCLUDE_DIR} COMPONENT Development
   )
 

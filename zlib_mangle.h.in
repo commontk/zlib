@@ -1,0 +1,93 @@
+#ifndef @ZLIB_MANGLE_PREFIX@mangle_h
+#define @ZLIB_MANGLE_PREFIX@mangle_h
+
+/*
+
+This header file mangles all symbols exported from the zlib library.
+It is included in all files while building the zlib library.  Due to
+namespace pollution, no zlib headers should be included in .h files in
+cm.
+
+The following command was used to obtain the symbol list:
+
+nm libcmzlib.so |grep " [TRD] "
+
+This is the way to recreate the whole list:
+
+nm libcmzlib.so |grep " [TRD] " | awk '{ print "#define "$3" @ZLIB_MANGLE_PREFIX@"$3 }'
+
+REMOVE the "_init" and "_fini" entries.
+
+*/
+
+#define adler32 @ZLIB_MANGLE_PREFIX@adler32
+#define adler32_combine @ZLIB_MANGLE_PREFIX@adler32_combine
+#define compress @ZLIB_MANGLE_PREFIX@compress
+#define compress2 @ZLIB_MANGLE_PREFIX@compress2
+#define compressBound @ZLIB_MANGLE_PREFIX@compressBound
+#define crc32 @ZLIB_MANGLE_PREFIX@crc32
+#define crc32_combine @ZLIB_MANGLE_PREFIX@crc32_combine
+#define get_crc_table @ZLIB_MANGLE_PREFIX@get_crc_table
+#define deflate @ZLIB_MANGLE_PREFIX@deflate
+#define deflateBound @ZLIB_MANGLE_PREFIX@deflateBound
+#define deflateCopy @ZLIB_MANGLE_PREFIX@deflateCopy
+#define deflateEnd @ZLIB_MANGLE_PREFIX@deflateEnd
+#define deflateInit2_ @ZLIB_MANGLE_PREFIX@deflateInit2_
+#define deflateInit_ @ZLIB_MANGLE_PREFIX@deflateInit_
+#define deflateParams @ZLIB_MANGLE_PREFIX@deflateParams
+#define deflatePrime @ZLIB_MANGLE_PREFIX@deflatePrime
+#define deflateReset @ZLIB_MANGLE_PREFIX@deflateReset
+#define deflateSetDictionary @ZLIB_MANGLE_PREFIX@deflateSetDictionary
+#define deflateSetHeader @ZLIB_MANGLE_PREFIX@deflateSetHeader
+#define deflateTune @ZLIB_MANGLE_PREFIX@deflateTune
+#define deflate_copyright @ZLIB_MANGLE_PREFIX@deflate_copyright
+#define gzclearerr @ZLIB_MANGLE_PREFIX@gzclearerr
+#define gzclose @ZLIB_MANGLE_PREFIX@gzclose
+#define gzdirect @ZLIB_MANGLE_PREFIX@gzdirect
+#define gzdopen @ZLIB_MANGLE_PREFIX@gzdopen
+#define gzeof @ZLIB_MANGLE_PREFIX@gzeof
+#define gzerror @ZLIB_MANGLE_PREFIX@gzerror
+#define gzflush @ZLIB_MANGLE_PREFIX@gzflush
+#define gzgetc @ZLIB_MANGLE_PREFIX@gzgetc
+#define gzgets @ZLIB_MANGLE_PREFIX@gzgets
+#define gzopen @ZLIB_MANGLE_PREFIX@gzopen
+#define gzprintf @ZLIB_MANGLE_PREFIX@gzprintf
+#define gzputc @ZLIB_MANGLE_PREFIX@gzputc
+#define gzputs @ZLIB_MANGLE_PREFIX@gzputs
+#define gzread @ZLIB_MANGLE_PREFIX@gzread
+#define gzrewind @ZLIB_MANGLE_PREFIX@gzrewind
+#define gzseek @ZLIB_MANGLE_PREFIX@gzseek
+#define gzsetparams @ZLIB_MANGLE_PREFIX@gzsetparams
+#define gztell @ZLIB_MANGLE_PREFIX@gztell
+#define gzungetc @ZLIB_MANGLE_PREFIX@gzungetc
+#define gzwrite @ZLIB_MANGLE_PREFIX@gzwrite
+#define inflate_fast @ZLIB_MANGLE_PREFIX@inflate_fast
+#define inflate @ZLIB_MANGLE_PREFIX@inflate
+#define inflateCopy @ZLIB_MANGLE_PREFIX@inflateCopy
+#define inflateEnd @ZLIB_MANGLE_PREFIX@inflateEnd
+#define inflateGetHeader @ZLIB_MANGLE_PREFIX@inflateGetHeader
+#define inflateInit2_ @ZLIB_MANGLE_PREFIX@inflateInit2_
+#define inflateInit_ @ZLIB_MANGLE_PREFIX@inflateInit_
+#define inflatePrime @ZLIB_MANGLE_PREFIX@inflatePrime
+#define inflateReset @ZLIB_MANGLE_PREFIX@inflateReset
+#define inflateSetDictionary @ZLIB_MANGLE_PREFIX@inflateSetDictionary
+#define inflateSync @ZLIB_MANGLE_PREFIX@inflateSync
+#define inflateSyncPoint @ZLIB_MANGLE_PREFIX@inflateSyncPoint
+#define inflate_copyright @ZLIB_MANGLE_PREFIX@inflate_copyright
+#define inflate_table @ZLIB_MANGLE_PREFIX@inflate_table
+#define _dist_code @ZLIB_MANGLE_PREFIX@_dist_code
+#define _length_code @ZLIB_MANGLE_PREFIX@_length_code
+#define _tr_align @ZLIB_MANGLE_PREFIX@_tr_align
+#define _tr_flush_block @ZLIB_MANGLE_PREFIX@_tr_flush_block
+#define _tr_init @ZLIB_MANGLE_PREFIX@_tr_init
+#define _tr_stored_block @ZLIB_MANGLE_PREFIX@_tr_stored_block
+#define _tr_tally @ZLIB_MANGLE_PREFIX@_tr_tally
+#define uncompress @ZLIB_MANGLE_PREFIX@uncompress
+#define zError @ZLIB_MANGLE_PREFIX@zError
+#define z_errmsg @ZLIB_MANGLE_PREFIX@z_errmsg
+#define zcalloc @ZLIB_MANGLE_PREFIX@zcalloc
+#define zcfree @ZLIB_MANGLE_PREFIX@zcfree
+#define zlibCompileFlags @ZLIB_MANGLE_PREFIX@zlibCompileFlags
+#define zlibVersion @ZLIB_MANGLE_PREFIX@zlibVersion
+
+#endif

@@ -1,0 +1,47 @@
+
+VERSION		1.23
+
+HEAPSIZE	1048576,4096
+
+EXPORTS
+    @ZLIB_MANGLE_PREFIX@adler32                        @1
+    @ZLIB_MANGLE_PREFIX@compress                       @2
+    @ZLIB_MANGLE_PREFIX@crc32                          @3
+    @ZLIB_MANGLE_PREFIX@deflate                        @4
+    @ZLIB_MANGLE_PREFIX@deflateCopy                    @5
+    @ZLIB_MANGLE_PREFIX@deflateEnd                     @6
+    @ZLIB_MANGLE_PREFIX@deflateInit2_                  @7
+    @ZLIB_MANGLE_PREFIX@deflateInit_                   @8
+    @ZLIB_MANGLE_PREFIX@deflateParams                  @9
+    @ZLIB_MANGLE_PREFIX@deflateReset                   @10
+    @ZLIB_MANGLE_PREFIX@deflateSetDictionary           @11
+    @ZLIB_MANGLE_PREFIX@gzclose                        @12
+    @ZLIB_MANGLE_PREFIX@gzdopen                        @13
+    @ZLIB_MANGLE_PREFIX@gzerror                        @14
+    @ZLIB_MANGLE_PREFIX@gzflush                        @15
+    @ZLIB_MANGLE_PREFIX@gzopen                         @16
+    @ZLIB_MANGLE_PREFIX@gzread                         @17
+    @ZLIB_MANGLE_PREFIX@gzwrite                        @18
+    @ZLIB_MANGLE_PREFIX@inflate                        @19
+    @ZLIB_MANGLE_PREFIX@inflateEnd                     @20
+    @ZLIB_MANGLE_PREFIX@inflateInit2_                  @21
+    @ZLIB_MANGLE_PREFIX@inflateInit_                   @22
+    @ZLIB_MANGLE_PREFIX@inflateReset                   @23
+    @ZLIB_MANGLE_PREFIX@inflateSetDictionary           @24
+    @ZLIB_MANGLE_PREFIX@inflateSync                    @25
+    @ZLIB_MANGLE_PREFIX@uncompress                     @26
+    @ZLIB_MANGLE_PREFIX@zlibVersion                    @27
+    @ZLIB_MANGLE_PREFIX@gzprintf                       @28
+    @ZLIB_MANGLE_PREFIX@gzputc                         @29
+    @ZLIB_MANGLE_PREFIX@gzgetc                         @30
+    @ZLIB_MANGLE_PREFIX@gzseek                         @31
+    @ZLIB_MANGLE_PREFIX@gzrewind                       @32
+    @ZLIB_MANGLE_PREFIX@gztell                         @33
+    @ZLIB_MANGLE_PREFIX@gzeof                          @34
+    @ZLIB_MANGLE_PREFIX@gzsetparams                    @35
+    @ZLIB_MANGLE_PREFIX@zError                         @36
+    @ZLIB_MANGLE_PREFIX@inflateSyncPoint               @37
+    @ZLIB_MANGLE_PREFIX@get_crc_table                  @38
+    @ZLIB_MANGLE_PREFIX@compress2                      @39
+    @ZLIB_MANGLE_PREFIX@gzputs                         @40
+    @ZLIB_MANGLE_PREFIX@gzgets                         @41
